@@ -29,6 +29,6 @@ def shortest(graph, start, goal):
                     print("shortest path =", new_path)
                     return
 
-graph = {0:[1,2,3], 1:[0,2,3], 2:[0,1,3], 3:[0,1,2]}
-possible(graph, 0, 3)
-shortest(graph, 0, 3)
+graph = {'A':['B','D','H'], 'B':['A','C','D'], 'C':['B','D','F'], 'D':['A','B','C','E'], 'E':['D','F','H'], 'F':['C','E','G'], 'G':['F','H'], 'H':['A','E','G']}
+possible(graph, 'A', 'H')
+shortest(graph, 'A', 'H')
