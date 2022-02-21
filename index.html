@@ -1,187 +1,198 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Google Maps Go Go Go</title>
     <style>
       * {
+        text-align: center;
+        color: white;
+        margin: 0;
+        padding: 0;
         box-sizing: border-box;
+        font-family: sans-serif;
       }
-      body {
-        background: #bbe9db;
-        font-family: Helvetica;
-      }
-      h1 {
-        text-align: center;
-      }
-      #map {
-        border: 2.5px solid;
-        height: 300px;
-        width: 100%;
-        border-radius: 15px;
-      }
-      #buttons {
-        margin-top: 10px;
-        text-align: center;
-      }
-      #b1, #b2, #b3 {
-        border: 2.5px solid;
-        margin: 10px;
-        height: 50px;
-        width: 250px;
-        border-radius: 15px;
-        font-size: 125%;
-      }
-      #b1:hover, #b2:hover, #b3:hover {
-        box-shadow: 0 0 50px black;
+
+      body { background: black; }
+
+      h1 { margin: 15px; }
+
+      ul { background: black; }
+
+      li {
+        float: left;
+        width: 33.33%;
+        display: inline-block;
         cursor: pointer;
       }
-      #information {
-        margin-left: 10%;
-        margin-top: 10px;
-        margin-right: 10%;
-        text-align: center;
-        font-size: 125%;
+
+      a {
+        display: block;
+        padding: 15px;
       }
-      #b1, #first {
-        background: #aeccc6;
+
+      .dropdown-content1 {
+        display: none;
+        position: absolute;
+        background: black;
+        min-width: 33.33%;
+        z-index: 1;
+        border: 1px solid red;
+        padding: 15px;
       }
-      #b2, #second {
-        background: #aeccc6;
+
+      .dropdown-content2 {
+        display: none;
+        border: 1px solid red;
       }
-      #b3, #third {
-        background: #aeccc6;
+
+      #map {
+        height: 300px;
+        width: 100%;
       }
-      #first, #second, #third {
-        border: 2.5px solid;
-        border-radius: 15px;
-        padding: 10px;
-        line-height: 1.25em;
-        box-shadow: 0 0 50px black;
-      }
+
+      #info { margin: 15px; }
+
+      .show { display: block; }
+
+      .red { background: red; }
     </style>
     <script>
       const center = { lat: 22.302711, lng: 114.177216 };
+
       function initMap() {
         const map = new google.maps.Map(document.getElementById("map"), {
           zoom: 10,
           center: center,
         });
       }
-      function AddMarker1() {
+
+      function AddMarker(myname,loc1,loc2) {
         const map = new google.maps.Map(document.getElementById("map"), {
           zoom: 10,
           center: center,
         });
-        var location = [ 'Nguyen Cherry', 22.352711, 114.127216 ];
+        var location = [ myname, loc1, loc2 ];
         var position = new google.maps.LatLng( location[ 1 ], location[ 2 ] );
         var marker = new google.maps.Marker({
           position: position,
           map: map,
           title: location[ 0 ]
         });
-        document.getElementById("first").style.display = "block";
-        document.getElementById("second").style.display = "none";
-        document.getElementById("third").style.display = "none";
       }
-      function AddMarker2() {
-        const map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 10,
-          center: center,
-        });
-        var location = [ 'Roxie Collins', 22.302711, 114.177216 ];
-        var position = new google.maps.LatLng( location[ 1 ], location[ 2 ] );
-        var marker = new google.maps.Marker({
-          position: position,
-          map: map,
-          title: location[ 0 ]
-        });
-        document.getElementById("first").style.display = "none";
-        document.getElementById("second").style.display = "block";
-        document.getElementById("third").style.display = "none";
+
+      function opendrop1() {
+        document.getElementById("myDropdown1").classList.toggle("show");
+        document.getElementById("red1").classList.toggle("red");
+        document.getElementById("myDropdown12").classList.remove("show");
+        document.getElementById("red2").classList.remove("red");
+        document.getElementById("myDropdown13").classList.remove("show");
+        document.getElementById("red3").classList.remove("red");
       }
-      function AddMarker3() {
-        const map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 10,
-          center: center,
-        });
-        var location = [ 'Roseann Merrill', 22.352711, 114.227216 ];
-        var position = new google.maps.LatLng( location[ 1 ], location[ 2 ] );
-        var marker = new google.maps.Marker({
-          position: position,
-          map: map,
-          title: location[ 0 ]
-        });
-        document.getElementById("first").style.display = "none";
-        document.getElementById("second").style.display = "none";
-        document.getElementById("third").style.display = "block";
+
+      function opendrop2() {
+        document.getElementById("myDropdown2").classList.toggle("show");
+        document.getElementById("reds1").classList.toggle("red");
+      }
+
+      function closedrop2() {
+        document.getElementById("myDropdown2").classList.remove("show");
+        document.getElementById("reds1").classList.remove("red");
+      }
+
+      function opendrop12() {
+        document.getElementById("myDropdown12").classList.toggle("show");
+        document.getElementById("red2").classList.toggle("red");
+        document.getElementById("myDropdown1").classList.remove("show");
+        document.getElementById("red1").classList.remove("red");
+        document.getElementById("myDropdown13").classList.remove("show");
+        document.getElementById("red3").classList.remove("red");
+      }
+
+      function opendrop22() {
+        document.getElementById("myDropdown22").classList.toggle("show");
+        document.getElementById("reds2").classList.toggle("red");
+      }
+
+      function closedrop22() {
+        document.getElementById("myDropdown22").classList.remove("show");
+        document.getElementById("reds2").classList.remove("red");
+      }
+
+      function opendrop13() {
+        document.getElementById("myDropdown13").classList.toggle("show");
+        document.getElementById("red3").classList.toggle("red");
+        document.getElementById("myDropdown1").classList.remove("show");
+        document.getElementById("red1").classList.remove("red");
+        document.getElementById("myDropdown12").classList.remove("show");
+        document.getElementById("red2").classList.remove("red");
+      }
+
+      function opendrop23() {
+        document.getElementById("myDropdown23").classList.toggle("show");
+        document.getElementById("reds3").classList.toggle("red");
+      }
+
+      function closedrop23() {
+        document.getElementById("myDropdown23").classList.remove("show");
+        document.getElementById("reds3").classList.remove("red");
+      }
+
+      function phone(myname,mynumber) {
+        var x = document.getElementById("info")
+        x.innerHTML = "Phone number of "+myname+" is "+mynumber;
       }
     </script>
   </head>
   <body>
     <h1>Google Maps Go Go Go</h1>
+    <ul>
+      <li>
+        <a onclick="opendrop1(),closedrop2()" id="red1">Nguyen Cherry</a>
+        <div id="myDropdown1" class="dropdown-content1">
+          <a onclick="opendrop1(),AddMarker('Nguyen Cherry',22.352711,114.127216)">LOCATION</a>
+          <a onclick="opendrop2()" id="reds1">INFO</a>
+          <div id="myDropdown2" class="dropdown-content2">
+            <a onclick="opendrop1(),closedrop2(),phone('Nguyen Cherry','+852 XXXX XXXX')">phone number</a>
+            <a onclick="opendrop1()">another info</a>
+            <a onclick="opendrop1()">another info</a>
+            <a onclick="opendrop1()">another info</a>
+            <a onclick="opendrop1()">another info</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <a onclick="opendrop12(),closedrop22()" id="red2">Roxie Collins</a>
+        <div id="myDropdown12" class="dropdown-content1">
+          <a onclick="opendrop12(),AddMarker('Roxie Collins',22.302711,114.177216)">LOCATION</a>
+          <a onclick="opendrop22()" id="reds2">INFO</a>
+          <div id="myDropdown22" class="dropdown-content2">
+            <a onclick="opendrop12(),closedrop22(),phone('Roxie Collins','+852 XXXX XXXX')">phone number</a>
+            <a onclick="opendrop12()">another info</a>
+            <a onclick="opendrop12()">another info</a>
+            <a onclick="opendrop12()">another info</a>
+            <a onclick="opendrop12()">another info</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <a onclick="opendrop13(),closedrop23()" id="red3">Roseann Merrill</a>
+        <div id="myDropdown13" class="dropdown-content1">
+          <a onclick="opendrop13(),AddMarker('Roseann Merrill',22.352711,114.227216)">LOCATION</a>
+          <a onclick="opendrop23()" id="reds3">INFO</a>
+          <div id="myDropdown23" class="dropdown-content2">
+            <a onclick="opendrop13(),closedrop23(),phone('Roseann Merrill','+852 XXXX XXXX')">phone number</a>
+            <a onclick="opendrop13()">another info</a>
+            <a onclick="opendrop13()">another info</a>
+            <a onclick="opendrop13()">another info</a>
+            <a onclick="opendrop13()">another info</a>
+          </div>
+        </div>
+      </li>
+    </ul>
     <div id="map"></div>
-    <div id="buttons">
-      <button id="b1" onclick="AddMarker1()">Nguyen Cherry</button>
-      <button id="b2" onclick="AddMarker2()">Roxie Collins</button>
-      <button id="b3" onclick="AddMarker3()">Roseann Merrill</button>
-    </div>
-    <div id="information">
-      <div id="first" style="display:none">
-        "_id": "620cd0c4ba09b14d3b2dd01a"<br>
-        "index": 0<br>
-        "guid": "f94340c7-80d8-4745-a331-c4dd4914f482"<br>
-        "isActive": true<br>
-        "balance": "$2,087.98"<br>
-        "picture": "http://placehold.it/32x32"<br>
-        "age": 29<br>
-        "eyeColor": "blue"<br>
-        "name": "Nguyen Cherry"<br>
-        "gender": "male"<br>
-        "company": "ZENTRY"<br>
-        "email": "nguyencherry@zentry.com"<br>
-        "phone": "+1 (938) 525-2646"<br>
-        "registered": "2018-12-31T09:39:54 -08:00"<br>
-        "greeting": "Hello, Nguyen Cherry! You have 2 unread messages."<br>
-        "favoriteFruit": "apple"
-      </div>
-      <div id="second" style="display:none">
-        "_id": "620cd0c4a1d0071a0f4d3a1b"<br>
-        "index": 1<br>
-        "guid": "1eaa1e24-b910-444d-abd9-0032370804f0"<br>
-        "isActive": true<br>
-        "balance": "$1,156.44"<br>
-        "picture": "http://placehold.it/32x32"<br>
-        "age": 36<br>
-        "eyeColor": "green"<br>
-        "name": "Roxie Collins"<br>
-        "gender": "female"<br>
-        "company": "DIGIPRINT"<br>
-        "email": "roxiecollins@digiprint.com"<br>
-        "phone": "+1 (992) 541-3177"<br>
-        "registered": "2021-04-02T08:25:24 -08:00"<br>
-        "greeting": "Hello, Roxie Collins! You have 9 unread messages."<br>
-        "favoriteFruit": "banana"
-      </div>
-      <div id="third" style="display:none">
-        "_id": "620cd0c491e665e1d21a06ae"<br>
-        "index": 2<br>
-        "guid": "70e940da-3c14-4e62-a100-dd0393302af8"<br>
-        "isActive": false<br>
-        "balance": "$2,869.01"<br>
-        "picture": "http://placehold.it/32x32"<br>
-        "age": 24<br>
-        "eyeColor": "brown"<br>
-        "name": "Roseann Merrill"<br>
-        "gender": "female"<br>
-        "company": "COMFIRM"<br>
-        "email": "roseannmerrill@comfirm.com"<br>
-        "phone": "+1 (984) 442-2908"<br>
-        "registered": "2017-10-09T02:37:26 -08:00"<br>
-        "greeting": "Hello, Roseann Merrill! You have 9 unread messages."<br>
-        "favoriteFruit": "banana"
-      </div>
-    </div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap"
-    ></script>
+    <div id="info">Info window</div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap"></script>
   </body>
 </html>
