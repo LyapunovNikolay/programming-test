@@ -18,8 +18,6 @@
 
       h1 { margin: 15px; }
 
-      ul { background: black; }
-
       li {
         float: left;
         width: 33.33%;
@@ -83,61 +81,41 @@
         });
       }
 
-      function opendrop1() {
-        document.getElementById("myDropdown1").classList.toggle("show");
-        document.getElementById("red1").classList.toggle("red");
-        document.getElementById("myDropdown12").classList.remove("show");
-        document.getElementById("red2").classList.remove("red");
-        document.getElementById("myDropdown13").classList.remove("show");
-        document.getElementById("red3").classList.remove("red");
+      function opendrop11() {
+        document.getElementById("myDropdown11").classList.toggle("show");
+        document.getElementById("red11").classList.toggle("red");
+        document.getElementById("myDropdown21").classList.remove("show");
+        document.getElementById("red21").classList.remove("red");
+        document.getElementById("myDropdown31").classList.remove("show");
+        document.getElementById("red31").classList.remove("red");
       }
 
-      function opendrop2() {
-        document.getElementById("myDropdown2").classList.toggle("show");
-        document.getElementById("reds1").classList.toggle("red");
+      function opendrop21() {
+        document.getElementById("myDropdown21").classList.toggle("show");
+        document.getElementById("red21").classList.toggle("red");
+        document.getElementById("myDropdown11").classList.remove("show");
+        document.getElementById("red11").classList.remove("red");
+        document.getElementById("myDropdown31").classList.remove("show");
+        document.getElementById("red31").classList.remove("red");
       }
 
-      function closedrop2() {
-        document.getElementById("myDropdown2").classList.remove("show");
-        document.getElementById("reds1").classList.remove("red");
+      function opendrop31() {
+        document.getElementById("myDropdown31").classList.toggle("show");
+        document.getElementById("red31").classList.toggle("red");
+        document.getElementById("myDropdown11").classList.remove("show");
+        document.getElementById("red11").classList.remove("red");
+        document.getElementById("myDropdown21").classList.remove("show");
+        document.getElementById("red21").classList.remove("red");
       }
 
-      function opendrop12() {
-        document.getElementById("myDropdown12").classList.toggle("show");
-        document.getElementById("red2").classList.toggle("red");
-        document.getElementById("myDropdown1").classList.remove("show");
-        document.getElementById("red1").classList.remove("red");
-        document.getElementById("myDropdown13").classList.remove("show");
-        document.getElementById("red3").classList.remove("red");
+      function opendrop2level(ddname,aname) {
+        document.getElementById(ddname).classList.toggle("show");
+        document.getElementById(aname).classList.toggle("red");
       }
 
-      function opendrop22() {
-        document.getElementById("myDropdown22").classList.toggle("show");
-        document.getElementById("reds2").classList.toggle("red");
-      }
-
-      function closedrop22() {
-        document.getElementById("myDropdown22").classList.remove("show");
-        document.getElementById("reds2").classList.remove("red");
-      }
-
-      function opendrop13() {
-        document.getElementById("myDropdown13").classList.toggle("show");
-        document.getElementById("red3").classList.toggle("red");
-        document.getElementById("myDropdown1").classList.remove("show");
-        document.getElementById("red1").classList.remove("red");
-        document.getElementById("myDropdown12").classList.remove("show");
-        document.getElementById("red2").classList.remove("red");
-      }
-
-      function opendrop23() {
-        document.getElementById("myDropdown23").classList.toggle("show");
-        document.getElementById("reds3").classList.toggle("red");
-      }
-
-      function closedrop23() {
-        document.getElementById("myDropdown23").classList.remove("show");
-        document.getElementById("reds3").classList.remove("red");
+      function closedrop(ddname,aname) {
+        document.getElementById(ddname).classList.remove("show");
+        document.getElementById(aname).classList.remove("red");
       }
 
       function phone(myname,mynumber) {
@@ -150,44 +128,44 @@
     <h1>Google Maps Go Go Go</h1>
     <ul>
       <li>
-        <a onclick="opendrop1(),closedrop2()" id="red1">Nguyen Cherry</a>
-        <div id="myDropdown1" class="dropdown-content1">
-          <a onclick="opendrop1(),AddMarker('Nguyen Cherry',22.352711,114.127216)">LOCATION</a>
-          <a onclick="opendrop2()" id="reds1">INFO</a>
-          <div id="myDropdown2" class="dropdown-content2">
-            <a onclick="opendrop1(),closedrop2(),phone('Nguyen Cherry','+852 XXXX XXXX')">phone number</a>
-            <a onclick="opendrop1()">another info</a>
-            <a onclick="opendrop1()">another info</a>
-            <a onclick="opendrop1()">another info</a>
-            <a onclick="opendrop1()">another info</a>
+        <a onclick="opendrop11(),closedrop('myDropdown12','red12')" id="red11">Nguyen Cherry</a>
+        <div id="myDropdown11" class="dropdown-content1">
+          <a onclick="opendrop11(),AddMarker('Nguyen Cherry',22.352711,114.127216)">LOCATION</a>
+          <a onclick="opendrop2level('myDropdown12','red12')" id="red12">INFO</a>
+          <div id="myDropdown12" class="dropdown-content2">
+            <a onclick="opendrop11(),closedrop('myDropdown12','red12'),phone('Nguyen Cherry','+852 XXXX XXXX')">phone number</a>
+            <a onclick="opendrop11()">another info</a>
+            <a onclick="opendrop11()">another info</a>
+            <a onclick="opendrop11()">another info</a>
+            <a onclick="opendrop11()">another info</a>
           </div>
         </div>
       </li>
       <li>
-        <a onclick="opendrop12(),closedrop22()" id="red2">Roxie Collins</a>
-        <div id="myDropdown12" class="dropdown-content1">
-          <a onclick="opendrop12(),AddMarker('Roxie Collins',22.302711,114.177216)">LOCATION</a>
-          <a onclick="opendrop22()" id="reds2">INFO</a>
+        <a onclick="opendrop21(),closedrop('myDropdown22','red22')" id="red21">Roxie Collins</a>
+        <div id="myDropdown21" class="dropdown-content1">
+          <a onclick="opendrop21(),AddMarker('Roxie Collins',22.302711,114.177216)">LOCATION</a>
+          <a onclick="opendrop2level('myDropdown22','red22')" id="red22">INFO</a>
           <div id="myDropdown22" class="dropdown-content2">
-            <a onclick="opendrop12(),closedrop22(),phone('Roxie Collins','+852 XXXX XXXX')">phone number</a>
-            <a onclick="opendrop12()">another info</a>
-            <a onclick="opendrop12()">another info</a>
-            <a onclick="opendrop12()">another info</a>
-            <a onclick="opendrop12()">another info</a>
+            <a onclick="opendrop21(),closedrop('myDropdown22','red22'),phone('Roxie Collins','+852 XXXX XXXX')">phone number</a>
+            <a onclick="opendrop21()">another info</a>
+            <a onclick="opendrop21()">another info</a>
+            <a onclick="opendrop21()">another info</a>
+            <a onclick="opendrop21()">another info</a>
           </div>
         </div>
       </li>
       <li>
-        <a onclick="opendrop13(),closedrop23()" id="red3">Roseann Merrill</a>
-        <div id="myDropdown13" class="dropdown-content1">
-          <a onclick="opendrop13(),AddMarker('Roseann Merrill',22.352711,114.227216)">LOCATION</a>
-          <a onclick="opendrop23()" id="reds3">INFO</a>
-          <div id="myDropdown23" class="dropdown-content2">
-            <a onclick="opendrop13(),closedrop23(),phone('Roseann Merrill','+852 XXXX XXXX')">phone number</a>
-            <a onclick="opendrop13()">another info</a>
-            <a onclick="opendrop13()">another info</a>
-            <a onclick="opendrop13()">another info</a>
-            <a onclick="opendrop13()">another info</a>
+        <a onclick="opendrop31(),closedrop('myDropdown32','red32')" id="red31">Roseann Merrill</a>
+        <div id="myDropdown31" class="dropdown-content1">
+          <a onclick="opendrop31(),AddMarker('Roseann Merrill',22.352711,114.227216)">LOCATION</a>
+          <a onclick="opendrop2level('myDropdown32','red32')" id="red32">INFO</a>
+          <div id="myDropdown32" class="dropdown-content2">
+            <a onclick="opendrop31(),closedrop('myDropdown32','red32'),phone('Roseann Merrill','+852 XXXX XXXX')">phone number</a>
+            <a onclick="opendrop31()">another info</a>
+            <a onclick="opendrop31()">another info</a>
+            <a onclick="opendrop31()">another info</a>
+            <a onclick="opendrop31()">another info</a>
           </div>
         </div>
       </li>
