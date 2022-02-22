@@ -72,12 +72,12 @@
           zoom: 10,
           center: center,
         });
-        var location = [ myname, loc1, loc2 ];
-        var position = new google.maps.LatLng( location[ 1 ], location[ 2 ] );
+        var location = [ loc1, loc2 ];
+        var position = new google.maps.LatLng( location[ 0 ], location[ 1 ] );
         var marker = new google.maps.Marker({
           position: position,
           map: map,
-          title: location[ 0 ]
+          title: myname
         });
       }
 
@@ -113,7 +113,7 @@
         document.getElementById(aname).classList.toggle("red");
       }
 
-      function closedrop(ddname,aname) {
+      function closedrop2level(ddname,aname) {
         document.getElementById(ddname).classList.remove("show");
         document.getElementById(aname).classList.remove("red");
       }
@@ -128,12 +128,12 @@
     <h1>Google Maps Go Go Go</h1>
     <ul>
       <li>
-        <a onclick="opendrop11(),closedrop('myDropdown12','red12')" id="red11">Nguyen Cherry</a>
+        <a onclick="opendrop11(),closedrop2level('myDropdown12','red12')" id="red11">Nguyen Cherry</a>
         <div id="myDropdown11" class="dropdown-content1">
           <a onclick="opendrop11(),AddMarker('Nguyen Cherry',22.352711,114.127216)">LOCATION</a>
           <a onclick="opendrop2level('myDropdown12','red12')" id="red12">INFO</a>
           <div id="myDropdown12" class="dropdown-content2">
-            <a onclick="opendrop11(),closedrop('myDropdown12','red12'),phone('Nguyen Cherry','+852 XXXX XXXX')">phone number</a>
+            <a onclick="opendrop11(),closedrop2level('myDropdown12','red12'),phone('Nguyen Cherry','+852 XXXX XXXX')">phone number</a>
             <a onclick="opendrop11()">another info</a>
             <a onclick="opendrop11()">another info</a>
             <a onclick="opendrop11()">another info</a>
@@ -142,12 +142,12 @@
         </div>
       </li>
       <li>
-        <a onclick="opendrop21(),closedrop('myDropdown22','red22')" id="red21">Roxie Collins</a>
+        <a onclick="opendrop21(),closedrop2level('myDropdown22','red22')" id="red21">Roxie Collins</a>
         <div id="myDropdown21" class="dropdown-content1">
           <a onclick="opendrop21(),AddMarker('Roxie Collins',22.302711,114.177216)">LOCATION</a>
           <a onclick="opendrop2level('myDropdown22','red22')" id="red22">INFO</a>
           <div id="myDropdown22" class="dropdown-content2">
-            <a onclick="opendrop21(),closedrop('myDropdown22','red22'),phone('Roxie Collins','+852 XXXX XXXX')">phone number</a>
+            <a onclick="opendrop21(),closedrop2level('myDropdown22','red22'),phone('Roxie Collins','+852 XXXX XXXX')">phone number</a>
             <a onclick="opendrop21()">another info</a>
             <a onclick="opendrop21()">another info</a>
             <a onclick="opendrop21()">another info</a>
@@ -156,12 +156,12 @@
         </div>
       </li>
       <li>
-        <a onclick="opendrop31(),closedrop('myDropdown32','red32')" id="red31">Roseann Merrill</a>
+        <a onclick="opendrop31(),closedrop2level('myDropdown32','red32')" id="red31">Roseann Merrill</a>
         <div id="myDropdown31" class="dropdown-content1">
           <a onclick="opendrop31(),AddMarker('Roseann Merrill',22.352711,114.227216)">LOCATION</a>
           <a onclick="opendrop2level('myDropdown32','red32')" id="red32">INFO</a>
           <div id="myDropdown32" class="dropdown-content2">
-            <a onclick="opendrop31(),closedrop('myDropdown32','red32'),phone('Roseann Merrill','+852 XXXX XXXX')">phone number</a>
+            <a onclick="opendrop31(),closedrop2level('myDropdown32','red32'),phone('Roseann Merrill','+852 XXXX XXXX')">phone number</a>
             <a onclick="opendrop31()">another info</a>
             <a onclick="opendrop31()">another info</a>
             <a onclick="opendrop31()">another info</a>
@@ -171,7 +171,7 @@
       </li>
     </ul>
     <div id="map"></div>
-    <div id="info">Info window</div>
+    <div id="info">Info Window</div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap"></script>
   </body>
 </html>
